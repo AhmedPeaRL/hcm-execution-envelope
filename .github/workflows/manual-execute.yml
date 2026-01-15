@@ -1,0 +1,21 @@
+name: Manual Execution Envelope
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'    # 
+
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run executor
+        env:
+          EXCHANGE_A_URL: ${{ secrets.EXCHANGE_A_URL }}
+          EXCHANGE_B_URL: ${{ secrets.EXCHANGE_B_URL }}
+          THRESHOLD: "2.0"
+        run: |
+          python executor/executor.py
