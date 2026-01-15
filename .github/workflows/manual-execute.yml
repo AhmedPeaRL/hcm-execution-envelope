@@ -16,6 +16,6 @@ jobs:
         env:
           EXCHANGE_A_URL: ${{ secrets.EXCHANGE_A_URL }}
           EXCHANGE_B_URL: ${{ secrets.EXCHANGE_B_URL }}
-          THRESHOLD: "2.0"
+          THRESHOLD: "0.5"
         run: |
           python executor/executor.py
